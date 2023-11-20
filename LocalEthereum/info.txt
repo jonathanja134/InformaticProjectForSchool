@@ -1,0 +1,22 @@
+node 1 - 0xFC19d10F6f8Ed32B9993C678860900441CB6500B
+passcode - axel
+
+geth --networkid 14333 --datadir "./data" --bootnodes enode://1b5ebf3079d49728f34a1307ccd81af0468aa133fb9625043ef7a27b6127fdccc4674fb6910935feae9a8c36504bb4429c26175c96518cdb70e97b5fb8941ada@127.0.0.1:30301 --port 30304 --ipcdisable --syncmode full --http --allow-insecure-unlock --http.corsdomain "*" --http.port 8546 --unlock 0xFC19d10F6f8Ed32B9993C678860900441CB6500B --password password.txt --authrpc.port 8552 console
+
+node 2 - 0x29E801adB9ff82904Ad3dCB2BD78fd97Ddd4162D
+passcode - marsacq
+
+geth --networkid 14333 --datadir "./data" --bootnodes enode://1b5ebf3079d49728f34a1307ccd81af0468aa133fb9625043ef7a27b6127fdccc4674fb6910935feae9a8c36504bb4429c26175c96518cdb70e97b5fb8941ada@127.0.0.1:30301 --port 30303 --ipcdisable --syncmode full --http --allow-insecure-unlock --http.corsdomain "*" --http.port 8545 --unlock 0x29E801adB9ff82904Ad3dCB2BD78fd97Ddd4162D --password password.txt --mine --miner.etherbase=0x29E801adB9ff82904Ad3dCB2BD78fd97Ddd4162D console
+
+bootnode enode:
+enode://1b5ebf3079d49728f34a1307ccd81af0468aa133fb9625043ef7a27b6127fdccc4674fb6910935feae9a8c36504bb4429c26175c96518cdb70e97b5fb8941ada@127.0.0.1:0?discport=30301
+
+node 3 - 0x4411F62A43792B2260d02510e694A95fF1bE0652
+passcode - axelaxel
+
+geth --networkid 14333 --datadir "./data" --bootnodes enode://1b5ebf3079d49728f34a1307ccd81af0468aa133fb9625043ef7a27b6127fdccc4674fb6910935feae9a8c36504bb4429c26175c96518cdb70e97b5fb8941ada@127.0.0.1:30301 --port 30305 --ipcdisable --syncmode full --http --allow-insecure-unlock --http.corsdomain "*" --http.port 8547 --unlock 0x4411F62A43792B2260d02510e694A95fF1bE0652 --password password.txt --authrpc.port 8553 console
+
+node 4 - 0xCD9424818619982590E10690e2708ca2750d2747
+passcode - test
+
+geth --networkid 14333 --datadir "./data" --bootnodes enode://1b5ebf3079d49728f34a1307ccd81af0468aa133fb9625043ef7a27b6127fdccc4674fb6910935feae9a8c36504bb4429c26175c96518cdb70e97b5fb8941ada@16.171.235.165:30301 --port 30306 --ipcdisable --syncmode full --http --allow-insecure-unlock --http.corsdomain "*" --http.port 8548 --unlock 0xCD9424818619982590E10690e2708ca2750d2747 --password password.txt --authrpc.port 8554 console

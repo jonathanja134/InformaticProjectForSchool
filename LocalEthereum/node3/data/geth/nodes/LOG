@@ -1,0 +1,28 @@
+=============== Nov 15, 2023 (CET) ===============
+13:16:40.832490 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:16:40.908766 db@open opening
+13:16:40.931701 version@stat F·[] S·0B[] Sc·[]
+13:16:40.967061 db@janitor F·2 G·0
+13:16:40.967246 db@open done T·58.217854ms
+=============== Nov 15, 2023 (CET) ===============
+13:17:04.883968 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:17:04.886832 version@stat F·[] S·0B[] Sc·[]
+13:17:04.886946 db@open opening
+13:17:04.887188 journal@recovery F·1
+13:17:04.891488 journal@recovery recovering @1
+13:17:04.916191 memdb@flush created L0@2 N·1 S·123B "version,v1":"version,v1"
+13:17:04.916946 version@stat F·[1] S·123B[123B] Sc·[0.25]
+13:17:05.014925 db@janitor F·3 G·0
+13:17:05.015015 db@open done T·128.042153ms
+13:17:06.029979 db@close closing
+13:17:06.030613 db@close done T·626.613µs
+=============== Nov 15, 2023 (CET) ===============
+13:17:35.279643 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:17:35.280317 version@stat F·[1] S·123B[123B] Sc·[0.25]
+13:17:35.280574 db@open opening
+13:17:35.280823 journal@recovery F·1
+13:17:35.281893 journal@recovery recovering @3
+13:17:35.304931 memdb@flush created L0@5 N·1 S·162B "loc..seq,v3":"loc..seq,v3"
+13:17:35.309616 version@stat F·[2] S·285B[285B] Sc·[0.50]
+13:17:35.394506 db@janitor F·4 G·0
+13:17:35.394619 db@open done T·114.000404ms
