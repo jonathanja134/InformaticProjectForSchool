@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="html" lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Permissions-Policy" content="directives">
+    <meta name="viewport" content="width=device-width, initial-scale=0.23, maximum-scale=10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
+    </script>
+    <title>PixIcam</title>
+  </head>
+  <header>
+    <h1 class="title">- PixIcam Wars -</h1>
+    <h1 class="title underTitle">Place your Pixel</h1>
+  </header>
+  <body>
+    <div id="Container">
+      <div id="canvaBox">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+    <div id="colorChoice">
+     <!--  <input type="color" id="colorSelector" class="Selector resizeTool"> -->
+    </div>
+    <!-- Blockchain part
+     un bouton pour chaque fct de notre smart contract et un input lorque nécéssaire (store and take fct) et un pour se connecter à metamask-->
+      <button id="connectBtn" >Connect to MetaMask</button> 
+      <div id="outputConnexion"></div><br>
+
+      <button class="block" id="ownerBtn">Add an address as owner</button>
+      <input class="block" id="ownerInp"><br>
+     <!--Blockchain part -->
+  </body>
+  <footer>
+     <script src="index.js" type="module"></script>
+    </div>
+  </footer>
+</html>
