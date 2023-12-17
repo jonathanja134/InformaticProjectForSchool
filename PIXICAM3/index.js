@@ -1,64 +1,63 @@
-//---- 1/ Definition Secton ----//
-
 const canvasEl = document.querySelector("canvas");
 const ctx = canvasEl.getContext("2d");
 const gridCtx = canvasEl.getContext('2d');
-// Define the dimensions of the canvas and pixel size
+
 const canvasWidth = 1600;
 const canvasHeight = 1600;
 const pixelSize = 10;
+
 const colMax = canvasWidth / pixelSize;
 const rowMax = canvasHeight / pixelSize;
 
-//Creation of the list that will be use to generate the color choice section
-const colorList = [
-  'black', 'white', 'red', 'orange', 'yellow', '#cb6e00', '#0cd78d', 'lightgreen', 'cyan', '#052be6', '#690be4', '#ce0ee0', '#c75884'];
+const colorList = ['black', 'white', 'red', 'orange', 'yellow', '#cb6e00', '#0cd78d', 'lightgreen', 'cyan', '#052be6', '#690be4', '#ce0ee0', '#c75884'];
+
 let currentColorChoice = 0;
 
-//---- 3/ creation of the color Toolbar ----//
+//the color Toolbar 
 colorList.forEach(color => {
   let i = 0;
-  //Using the ColorList we generate the <div>
+
   const colorItem = document.createElement('div');
   colorItem.style.backgroundColor = color;
   colorItem.setAttribute('class', 'resizeToolBlock');
+
   i++;
+
   colorChoice.appendChild(colorItem);
 
   colorItem.addEventListener('click', () => {
     currentColorChoice = color;
-    ctx.fillStyle = currentColorChoice; // Update the drawing color
+    ctx.fillStyle = currentColorChoice; 
 
     colorChoice.querySelectorAll('div').forEach(item => {
-      item.innerHTML = ""; // Clear the innerHTML of each color item
+      item.innerHTML = ""; 
+
     });
-    colorItem.innerHTML = '<i id="pen" class="fa-solid fa-pen"></i>' // active the innerHTML for the selected color
+    colorItem.innerHTML = '<i id="pen" class="fa-solid fa-pen"></i>' 
     if (colorItem.style.backgroundColor === "black" || colorItem[3] === 'red' || colorItem.style.backgroundColor === "#690be4") {
       pen.setAttribute("class", " fa-solid fa-pen whitePen");
     };
   });
 });
 
-//---- 4/ creation of the Canva Support ----//
+//the Canva Support 
 
 const firstDrawCanva = () => {
   canvasEl.width = canvasWidth;
   canvasEl.height = canvasHeight;
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight);//Draw the whole canva 
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
   drawPixel();
 };
 
-//---- 5/ creation of the Grid ----//
+//the Grid
 
 function drawGrids(ctx, canvasWidth, canvasHeight, pixelSize) {
   ctx.beginPath();
   ctx.strokeStyle = "#c9cdcf";
-  //loop for height grid line
   for (let i = 0; i < colMax; i++) {
     ctx.moveTo(i * pixelSize, 0);
     ctx.lineTo(i * pixelSize, canvasHeight);
   };
-  //loop for Width grid line
   for (let i = 0; i < rowMax; i++) {
     ctx.moveTo(0, i * pixelSize);
     ctx.lineTo(canvasWidth, i * pixelSize);
@@ -282,7 +281,6 @@ function createPixel(rowIndex, colIndex, color) {
   ctx.fillRect(colIndex * pixelSize, rowIndex * pixelSize, pixelSize, pixelSize);
 }
 
-//---- 8/ We Run all Function ----// 
 connectToMetaMask();
 firstDrawCanva();
 onClickPixel(canvasEl, pixelSize);
@@ -314,25 +312,18 @@ function adjustDivSize() {
   colorChoice.style.borderRadius = newRadius + 'px';
 }
 
-// ---------------------- SMART CONTRACT -------------------- //
-
-// Importer les fonctions de notre modules ethers.js
+// ---------------------- BACK END -------------------- //
 import { ethers } from "./ethers-5.1.esm.min.js"
-// Importer l'abi et l'adresse du contrat
 import { abi, contractAddress } from "./constant.js"
 
-// Association de chaque élément du html à des variable JavaScript
-let ownerBtn = document.getElementById("ownerBtn");
-let ownerInp = document.getElementById("ownerInp");
+//let ownerBtn = document.getElementById("ownerBtn");
+//let ownerInp = document.getElementById("ownerInp");
 
-// Executer les fonctions en fontion du bouton clické
-ownerBtn.onclick = addOwner;
+//ownerBtn.onclick = addOwner;
 
-// Fonction qui permet de se connecter à MetaMask
+
 async function connectToMetaMask() {
-  // Vérifie si MetaMask est installé
   if (typeof window.ethereum !== "undefined") {
-    // Demande de se connecter si MetaMask est déjà installé
     window.ethereum.request({ method: "eth_requestAccounts" });
     console.log("Connected");
   } else {
@@ -340,28 +331,25 @@ async function connectToMetaMask() {
   }
 }
 
-// Fonction qui permet d'ajouter une address en tant qu'owner
-async function addOwner() {
-  // Création une variable "address" qui contindra la valeur mit dans l'input html
-  const address = ownerInp.value;
-  console.log(`Adding the adress: ${address} as an owner...`);
-  if (typeof window.ethereum !== "undefined") {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract(contractAddress, abi, signer);
-    try {
-      // Execute la fonction "addOwner" de notre smart contract
-      let transactionResponse = await contract.addOwner(address);
-      await listenForTransactionMine(transactionResponse, provider);
-      console.log("Done !")
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
-}
 
-// Fonction qui permet de définir la valeur d'un pixel en fonction de son indexage
+//async function addOwner() {
+  //const address = ownerInp.value;
+  //console.log(`Adding the adress: ${address} as an owner...`);
+  //if (typeof window.ethereum !== "undefined") {
+    //const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //const signer = provider.getSigner();
+    //const contract = new ethers.Contract(contractAddress, abi, signer);
+    //try {
+      //let transactionResponse = await contract.addOwner(address);
+      //await listenForTransactionMine(transactionResponse, provider);
+      //console.log("Done !")
+    //}
+    //catch (error) {
+      //console.log(error);
+    //}
+  //}
+//}
+
 async function setPixel(index, X, Y, value) {
   console.log(`Setting pixel of array ${index} at ${X};${Y} as ${value}...`);
   if (typeof window.ethereum !== "undefined") {
@@ -394,7 +382,6 @@ async function getSubArrayPixel(index) {
   }
 }
 
-// Attends que les blocs soit bien minés pour executer les fonctions
 function listenForTransactionMine(transactionResponse, provider) {
   console.log(`Mining ${transactionResponse.hash}...`);
   return new Promise((resolve, reject) => {
