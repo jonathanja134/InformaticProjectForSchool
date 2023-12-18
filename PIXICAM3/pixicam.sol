@@ -29,20 +29,4 @@ contract pixicam {
         require(col < length, "Column index out of bounds");
         pixelArray[index].data[row][col] = value;
     }
-
-    //mapping(address => bool) private isOwner;
-
-    //constructor() {
-    //isOwner[msg.sender] = true;
-    //}
-
-    //modifier OnlyOwner() {
-    //require(isOwner[msg.sender], "Error: Not an owner");
-    //_;
-    //}
-
-    //function addOwner(address newOwner) public OnlyOwner {
-    //require(!isOwner[newOwner], "Error: Address is already an owner");
-    //isOwner[newOwner] = true;
-    //}
 }
