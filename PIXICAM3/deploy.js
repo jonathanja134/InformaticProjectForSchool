@@ -3,8 +3,8 @@ const fs = require("fs-extra")
 
 
 async function main(){
-    let provider = new ethers.JsonRpcProvider("HTTP://127.0.0.1:7545") 
-    let wallet = new ethers.Wallet("0x11a651499e1ce3cfbeaee217b189381e1ff1006a53b1224277e70eb6fbfa2389", provider) 
+    let provider = new ethers.JsonRpcProvider("https://goerli.infura.io/v3/c9c0ff0ece56443b94cad03424cbe637") 
+    let wallet = new ethers.Wallet("828a889eae35c81734a750e114951aa706605dc30fe00c1e5ad3ca86524b7cc5", provider) 
 
     const abi = fs.readFileSync("./pixicam_sol_pixicam.abi", "utf8") 
     const binary = fs.readFileSync("./pixicam_sol_pixicam.bin","utf8")
