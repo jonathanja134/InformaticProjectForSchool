@@ -1,1 +1,0 @@
-prix de 1 pixel en GETH = 0.05011292 GoerliETH juste avec les fees
